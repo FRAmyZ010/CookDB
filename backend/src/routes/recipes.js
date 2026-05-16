@@ -3,6 +3,8 @@ const router = express.Router();
 
 const db = require("../database");
 
+
+// GET ALL RECIPES
 router.get("/", (req,res)=>{
     const showRecipe = `SELECT * FROM recipes`;
 
@@ -11,6 +13,23 @@ router.get("/", (req,res)=>{
             res.status(500).json({error: err.message});
         }
         res.status(200).json(rows);
+    })
+})
+
+// GET RECIPE by ID
+router.get("/:id",(req,res)=>{
+    const id = req.params.id;
+
+    const getByID = `SELECT * FROM recipes WHERE id = ?`;
+
+    db.all(getByID,[id],(err,row)=>{
+        if(err){
+            return res.status(500).json({
+                error:err.message,
+                message:"Error Get Recipes by ID"
+            })
+        }
+        res.status(200).json(row)
     })
 })
 
