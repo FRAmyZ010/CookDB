@@ -50,6 +50,25 @@ router.get("/:id",(req,res)=>{
     })
 })
 
+// GET RECIPE CATEGORIZED BY category_id
+router.get("/category/:id",(req,res)=>{
+    const id = req.params.id;
+    const showCategory = `
+    SELECT *
+    FROM recipes
+    WHERE category_id = ?
+    `;
+
+    db.all(showCategory,[id],(err,row)=>{
+        if(err){
+            return res.status(500).json({
+                err:err.message
+            })
+        }
+        res.status(200).json(row)
+    })
+})
+
 // CREATE NEW RECIPE
 router.post("/",(req,res)=>{
      const {
