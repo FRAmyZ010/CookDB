@@ -5,6 +5,7 @@ const app = express();
 // IMPORT ROUTES //
 
 const recipesRoutes = require('./routes/recipes');
+const categoryRoutes = require('./routes/category')
 
 app.use(cors());
 app.use(express.json());
@@ -16,5 +17,6 @@ app.get("/",(req,res)=>{
 });
 
 app.use("/recipes",recipesRoutes);
+app.use("/category",categoryRoutes);
 
 module.exports = app;
