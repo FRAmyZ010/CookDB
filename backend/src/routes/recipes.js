@@ -4,7 +4,7 @@ const router = express.Router();
 const db = require("../database");
 
 
-// GET ALL RECIPES
+// GET ALL RECIPES and SEARCH by NAME
 router.get("/", (req,res)=>{
 
     const search = req.query.search;
@@ -50,25 +50,7 @@ router.get("/:id",(req,res)=>{
     })
 })
 
-//  Get Recipes by Name /recipes?search=value
-router.get("/",(req,res)=>{
-    const name = req.query.search;
-    const showSearch = `SELECT * FROM recipes WHERE name LIKE ?`;
-
-    db.all(showSearch,[name],(err,row)=>{
-        if(err){
-            res.status(500).json({
-                err:err.message
-            })
-        }else{
-            res.status(200).json(row)
-        }
-    })
-
-   
-
-})
-
+// CREATE NEW RECIPE
 router.post("/",(req,res)=>{
      const {
         name,
@@ -107,6 +89,7 @@ router.post("/",(req,res)=>{
      })
 })
 
+// DELETE RECIPES
 router.delete("/:id",(req,res)=>{
     const id = req.params.id;
 
@@ -128,6 +111,44 @@ router.delete("/:id",(req,res)=>{
         res.status(200).json({
             message: "Recipe deleted successfully",
             id:id
+        })
+    })
+})
+
+// UPDATE RECIPES
+router.put("/:id",(req,res)=>{
+    const id = req.params.id;
+    const {
+        name,
+        ingredients,
+        instructions,
+        image_url,
+        category_id,
+        cook_time,
+        servings
+     } = req.body;
+    const updtRecipe = `
+    UPDATE recipes 
+    SET 
+        name = ?,
+        ingredients = ?,
+        instructions = ?,
+        image_url = ?,
+        category_id = ?,
+        cook_time = ?,
+        servings = ?
+     WHERE id = ?
+    `;
+
+    db.run(updtRecipe,[name, ingredients, instructions, image_url, category_id, cook_time, servings, id],(err)=>{
+        if(err){
+            return res.status(500).json({
+                err:err.message
+            })
+        }
+        res.json({
+            message:"Recipe updated successfully!",
+            updatedID: id
         })
     })
 })
