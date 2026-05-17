@@ -6,14 +6,31 @@ const db = require("../database");
 
 // GET ALL RECIPES
 router.get("/", (req,res)=>{
-    const showRecipe = `SELECT * FROM recipes`;
 
-    db.all(showRecipe,(err,rows)=>{
+    const search = req.query.search;
+    const showRecipe = `SELECT * FROM recipes`;
+    const showSearch = `SELECT * FROM recipes WHERE name LIKE ?`;
+
+    if(search){
+        db.all(showSearch,[`%${search}%`],(err,row)=>{
+        if(err){
+            res.status(500).json({
+                err:err.message
+            })
+        }else{
+            res.status(200).json(row)
+        }
+    })
+    }else{
+       db.all(showRecipe,(err,rows)=>{
         if(err){
             res.status(500).json({error: err.message});
         }
         res.status(200).json(rows);
-    })
+    }) 
+    }
+
+    
 })
 
 // GET RECIPE by ID
@@ -31,6 +48,25 @@ router.get("/:id",(req,res)=>{
         }
         res.status(200).json(row)
     })
+})
+
+//  Get Recipes by Name /recipes?search=value
+router.get("/",(req,res)=>{
+    const name = req.query.search;
+    const showSearch = `SELECT * FROM recipes WHERE name LIKE ?`;
+
+    db.all(showSearch,[name],(err,row)=>{
+        if(err){
+            res.status(500).json({
+                err:err.message
+            })
+        }else{
+            res.status(200).json(row)
+        }
+    })
+
+   
+
 })
 
 router.post("/",(req,res)=>{
