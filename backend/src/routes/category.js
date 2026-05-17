@@ -20,6 +20,22 @@ router.get("/",(req,res)=>{
     })
 })
 
+// CREATE NEW CATEGORY
+router.post("/",(req,res)=>{
+    const name = req.body.name
+    const creatCat = `
+    INSERT INTO categories (name) VALUES (?);
+    `;
 
+    db.run(creatCat,[name],(err)=>{
+        if(err){
+            return res.status(500).json({err:err.message})
+        }
+        res.status(201).json({
+            message:`Created category "${name}" successfully!`,
+            id : this.lastID
+        })
+    })
+})
 
 module.exports = router
