@@ -60,4 +60,21 @@ router.put("/:id",(req,res)=>{
     })
 })
 
+// DELETE CATEGORY
+router.delete("/:id",(req,res)=>{
+    const id = req.params.id;
+    const deleteCategory = `DELETE FROM categories WHERE id = ?`;
+
+    db.run(deleteCategory,id,(err)=>{
+        if(err){
+            return res.status(500).json({
+                error:err.message
+            })
+        }
+        res.status(200).json({
+            message:"Deleted successfully!"
+        })
+    })
+})
+
 module.exports = router
