@@ -5,12 +5,24 @@ const db = require("../database");
 
 // GET ALL CATEGORIES
 router.get("/",(req,res)=>{
+    const search = req.query.search;
     const showCat = `
     SELECT *
     FROM categories
     `;
+    const searchCat = `SELECT * FROM categories WHERE name LIKE ?`;
 
-    db.all(showCat,(err,row)=>{
+    if(search){
+        db.all(searchCat,`%${search}%`,(err,row)=>{
+            if(err){
+            return res.status(500).json({
+                err:err.message
+            })
+        }
+        res.status(200).json(row)
+        })
+    }else{
+        db.all(showCat,(err,row)=>{
         if(err){
             return res.status(500).json({
                 err:err.message
@@ -18,6 +30,9 @@ router.get("/",(req,res)=>{
         }
         res.status(200).json(row)
     })
+    }
+
+    
 })
 
 // CREATE NEW CATEGORY
