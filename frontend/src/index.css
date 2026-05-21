@@ -8,6 +8,9 @@
     --color-primary-sub:#80f5ab;
     --color-primary-text:#111827;
     --color-secondary-text:#1c2436;
+    --color-background:#FFFFFF;
+    --color-surface:#FAFAFA;
+    --color-border:#e5e7eb;
   
     /* FONT SIZE */
     --font-sm:.8vw;
@@ -24,4 +27,5 @@
 body{
   margin: 0;
   font-family: Kanit;
+  background-color: var(--color-background);
 }
