@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import RecipesListCard from "../components/RecipesListCard"
+
 import "./Recipes.css";
 
 function Recipes() {

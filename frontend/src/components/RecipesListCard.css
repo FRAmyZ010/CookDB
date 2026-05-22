@@ -2,8 +2,12 @@
     max-width:15vw;
     min-width: 250px;
     width: 100%;
-    padding: 1%;
+    padding: 1vw;
     margin: 2vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     align-items: center;
     text-align: center;
@@ -18,7 +22,9 @@
 
 .card{
     margin:1vh auto;
-    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     
 }
 
