@@ -2,8 +2,10 @@ import Navbar from "./components/Navbar";
 import {Routes, Route} from "react-router-dom";
 import Home from "./pages/Home"
 import Recipes from "./pages/Recipes"
+import { useEffect } from "react";
 
 function App() {
+
 
   return (
     <>

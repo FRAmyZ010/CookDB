@@ -50,6 +50,20 @@ router.get("/:id",(req,res)=>{
     })
 })
 
+router.get("/latest/show",(req,res)=>{
+    const getLatest = `SELECT * FROM recipes ORDER BY id DESC LIMIT 3;`
+
+    db.all(getLatest,(err,row)=>{
+        if(err){
+            return res.status(500).json({
+                error:err.message,
+                message:"Failed to get latest recipes"
+            })
+        }
+        res.status(200).json(row)
+    })
+})
+
 // GET RECIPE CATEGORIZED BY category_id
 router.get("/category/:id",(req,res)=>{
     const id = req.params.id;

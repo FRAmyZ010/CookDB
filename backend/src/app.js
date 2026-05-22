@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const morgan = require('morgan');
 const app = express();
 
 // IMPORT ROUTES //
@@ -8,6 +9,7 @@ const recipesRoutes = require('./routes/recipes');
 const categoryRoutes = require('./routes/category')
 
 app.use(cors());
+app.use(morgan('dev'));
 app.use(express.json());
 
 app.get("/",(req,res)=>{

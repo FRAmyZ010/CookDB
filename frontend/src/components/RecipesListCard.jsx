@@ -1,7 +1,7 @@
-import "./RecipesCard.css";
+import "./RecipesListCard.css";
 
 
-function RecipesCard({recipesData}) {
+function RecipesListCard({recipesData}) {
   return (
     <>
       <div className="card-container">
@@ -17,4 +17,4 @@ function RecipesCard({recipesData}) {
   );
 }
 
-export default RecipesCard;
+export default RecipesListCard;
