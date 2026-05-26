@@ -1,9 +1,9 @@
-.container {
+.home-container {
     margin:5vh 5vw;
+    justify-self: center;
 }
 
-.row {
-    display:grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: .2vw;
+.home-container .row {
+    display: flex;
+    
 }

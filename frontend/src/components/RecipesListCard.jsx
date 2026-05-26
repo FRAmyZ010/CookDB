@@ -1,11 +1,11 @@
 import "./RecipesListCard.css";
-import ButtonReDirect from "./ButtonReDirect"
+import ButtonReDirect from "./Button/ButtonReDirect"
 
 
 function RecipesListCard({recipesData}) {
   return (
     <>
-      <div className="card-container">
+      <div className="recipes-card-container">
 
           <img src={`/img/${recipesData.image_url}`} alt={recipesData.name} />
           <div className="content">
@@ -15,7 +15,7 @@ function RecipesListCard({recipesData}) {
           </div>
           
 
-          <ButtonReDirect/>
+          <ButtonReDirect id={recipesData.id}/>
 
       </div>
     </>

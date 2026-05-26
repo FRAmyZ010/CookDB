@@ -1,4 +1,4 @@
-.card-container{
+.recipes-card-container{
     max-width:15vw;
     min-width: 250px;
     width: 100%;
@@ -20,15 +20,15 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.card{
+/* .card{
     margin:1vh auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     
-}
+} */
 
-img{
+.recipes-card-container img{
     max-width: 14vw;
     min-width: 220px;
     width: 100%;
@@ -41,4 +41,5 @@ img{
     font-size: var(--font-mid);
     font-weight: var(--font-weight-medium);
 }
+
 

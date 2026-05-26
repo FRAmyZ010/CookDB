@@ -1,39 +1,41 @@
 import { useEffect, useState } from "react";
 
-import RecipesListCard from "../components/RecipesListCard"
+import RecipesListCard from "../components/RecipesListCard";
+import AddButton from "../components/Button/AddButton";
 
 import "./Recipes.css";
 
 function Recipes() {
+  const url = "http://localhost:3000";
 
-  const url = "http://localhost:3000"
-  
-    const [recipes, setRecipes] = useState([]);
-  
-    useEffect(()=>{
-      async function fetchRecipes(){
-        try{
-          const response = await fetch(`${url}/recipes`);
-          const data = await response.json();
-  
-          setRecipes(data);
-        }catch (error){
-          console.log(error);
-        }
+  const [recipes, setRecipes] = useState([]);
+
+  useEffect(() => {
+    async function fetchRecipes() {
+      try {
+        const response = await fetch(`${url}/recipes`);
+        const data = await response.json();
+
+        setRecipes(data);
+      } catch (error) {
+        console.log(error);
       }
-      fetchRecipes();
-    },[])
+    }
+    fetchRecipes();
+  }, []);
   return (
     <>
-      <p className="title">YOUR RECIPES</p>
-      <div className="container">
-        <div className="row">
-          
-            {recipes.map((recipe)=>(
-              <RecipesListCard key={recipe.id} recipesData={recipe}/>
-            ))}
-            
+      <div className="recipes-head">
+        <p></p>
+        <p className="title">YOUR RECIPES</p>
+        <AddButton />
+      </div>
 
+      <div className="recipes-container">
+        <div className="recipes-row">
+          {recipes.map((recipe) => (
+            <RecipesListCard key={recipe.id} recipesData={recipe} />
+          ))}
         </div>
       </div>
     </>

@@ -1,0 +1,54 @@
+.info-card{
+    background-color: var(--color-surface);
+    max-width: 90vw;
+    width: 100%;
+    height: 70vh;
+
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.16);
+    border: none;
+    border-radius: 2%;
+
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+
+    margin-top: 5vh;
+
+}
+
+.info-col-left{
+    flex:3;
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.1);
+    border-radius: 20px 0px 0px 20px;
+
+    padding: 40px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+
+.info-col-right{
+    flex:7;
+
+    padding: 40px;
+
+    overflow-y: auto;
+}
+
+.inFoImg{
+    max-width: 25vw;
+    width: 100%;
+}
+
+.info-card p{
+    font-size: var(--font-mid);
+    font-weight: var(--font-weight-light);
+    
+}
+
+.ingredients p, .instructions p {
+    font-size:var(--font-s);
+    margin-left: 1vw;
+}

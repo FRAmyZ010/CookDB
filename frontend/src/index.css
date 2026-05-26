@@ -11,10 +11,12 @@
     --color-background:#FFFFFF;
     --color-surface:#FAFAFA;
     --color-border:#e5e7eb;
+    --color-add-btn:#00FF5F;
   
     /* FONT SIZE */
     --font-sm:.8vw;
     --font-s:1.2vw;
+    --font-l:1.5vw;
     --font-mid:2vw;
     --font-large:3vw;
 

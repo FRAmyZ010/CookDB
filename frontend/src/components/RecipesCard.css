@@ -1,8 +1,7 @@
-.card-container{
-    max-width:22vw;
-    min-width: 250px;
+.home-card-container{
+    max-width:30vw;
     width: 100%;
-    padding: 1%;
+    padding: 1vw;
     margin: 2vw;
 
     align-items: center;
@@ -14,25 +13,27 @@
     border-radius: 5%;
 
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    
 }
 
-.card{
+.home-card{
+    
     margin:1vh auto;
-    
+    display: flex;
+    flex-direction: column;
     
 }
 
-img{
-    max-width: 19vw;
-    min-width: 220px;
+.home-card img{
+    height: 20vh;
     width: 100%;
 
     border-radius: 10%;
 }
 
-.title{
-    text-align: center;
-    font-size: var(--font-mid);
-    font-weight: var(--font-weight-medium);
-}
+
 

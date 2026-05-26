@@ -4,8 +4,8 @@ import "./RecipesCard.css";
 function RecipesCard({recipesData}) {
   return (
     <>
-      <div className="card-container">
-        <div className="card">
+      <div className="home-card-container">
+        <div className="home-card">
           <img src={`/img/${recipesData.image_url}`} alt={recipesData.name} />
           
           <p>Name: {recipesData.name}</p>
