@@ -79,3 +79,14 @@
   transform: scale(1.1);
   transition: 0.2s ease-in-out;
 }
+
+.form-container{
+  width: 80%;
+}
+
+.form-container form{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 0.5rem;
+}

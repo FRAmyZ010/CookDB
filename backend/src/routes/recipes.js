@@ -1,7 +1,23 @@
 const express = require("express");
 const router = express.Router();
 
+const multer = require("multer")
+
 const db = require("../database");
+
+// MULTER
+
+const fileStorageEngine = multer.diskStorage({
+  destination:(req, file, cb)=>{
+    cb(null,'../frontend/public/img' )
+  },
+  filename:(req, file, cb)=>{
+    cb(null, Date.now()+"--"+file.originalname)
+  }
+})
+
+const upload = multer({storage:fileStorageEngine});
+
 
 
 // GET ALL RECIPES and SEARCH by NAME
@@ -84,16 +100,17 @@ router.get("/category/:id",(req,res)=>{
 })
 
 // CREATE NEW RECIPE
-router.post("/",(req,res)=>{
+router.post("/",upload.single("image"),(req,res)=>{
      const {
         name,
         ingredients,
         instructions,
-        image_url,
         category_id,
         cook_time,
         servings
      } = req.body;
+
+     const image_url = req.file.filename;
 
      const insertRecipe = `
         INSERT INTO recipes (
@@ -116,7 +133,8 @@ router.post("/",(req,res)=>{
         else{
             res.status(201).json({
                 message: "Recipe added successfully",
-                id: this.lastID
+                id: this.lastID,
+                image_url
             });
         }
      })
