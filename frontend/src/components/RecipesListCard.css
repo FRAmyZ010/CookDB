@@ -1,0 +1,45 @@
+.recipes-card-container{
+    max-width:15vw;
+    min-width: 250px;
+    width: 100%;
+    padding: 1vw;
+    margin: 2vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    align-items: center;
+    text-align: center;
+
+    color: var(--color-text);
+    background-color: var(--color-surface);
+
+    border-radius: 5%;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* .card{
+    margin:1vh auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+} */
+
+.recipes-card-container img{
+    max-width: 14vw;
+    min-width: 220px;
+    width: 100%;
+
+    border-radius: 10%;
+}
+
+.title{
+    text-align: center;
+    font-size: var(--font-mid);
+    font-weight: var(--font-weight-medium);
+}
+
+

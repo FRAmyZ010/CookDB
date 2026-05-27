@@ -1,0 +1,15 @@
+.recipes-head{
+    display: flex;
+    justify-content: space-around;
+    margin: 1vw;
+}
+
+.recipes-container {
+    margin:5vh 5vw;
+}
+
+.recipes-row {
+    display:grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: .2vw;
+}

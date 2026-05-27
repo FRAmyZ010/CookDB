@@ -1,0 +1,39 @@
+.home-card-container{
+    max-width:30vw;
+    width: 100%;
+    padding: 1vw;
+    margin: 2vw;
+
+    align-items: center;
+    text-align: center;
+
+    color: var(--color-text);
+    background-color: var(--color-surface);
+
+    border-radius: 5%;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    
+}
+
+.home-card{
+    
+    margin:1vh auto;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.home-card img{
+    height: 20vh;
+    width: 100%;
+
+    border-radius: 10%;
+}
+
+
+

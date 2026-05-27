@@ -1,7 +1,23 @@
 const express = require("express");
 const router = express.Router();
 
+const multer = require("multer")
+
 const db = require("../database");
+
+// MULTER
+
+const fileStorageEngine = multer.diskStorage({
+  destination:(req, file, cb)=>{
+    cb(null,'../frontend/public/img' )
+  },
+  filename:(req, file, cb)=>{
+    cb(null, Date.now()+"--"+file.originalname)
+  }
+})
+
+const upload = multer({storage:fileStorageEngine});
+
 
 
 // GET ALL RECIPES and SEARCH by NAME
@@ -50,6 +66,20 @@ router.get("/:id",(req,res)=>{
     })
 })
 
+router.get("/latest/show",(req,res)=>{
+    const getLatest = `SELECT * FROM recipes ORDER BY id DESC LIMIT 3;`
+
+    db.all(getLatest,(err,row)=>{
+        if(err){
+            return res.status(500).json({
+                error:err.message,
+                message:"Failed to get latest recipes"
+            })
+        }
+        res.status(200).json(row)
+    })
+})
+
 // GET RECIPE CATEGORIZED BY category_id
 router.get("/category/:id",(req,res)=>{
     const id = req.params.id;
@@ -70,16 +100,17 @@ router.get("/category/:id",(req,res)=>{
 })
 
 // CREATE NEW RECIPE
-router.post("/",(req,res)=>{
+router.post("/",upload.single("image"),(req,res)=>{
      const {
         name,
         ingredients,
         instructions,
-        image_url,
         category_id,
         cook_time,
         servings
      } = req.body;
+
+     const image_url = req.file.filename;
 
      const insertRecipe = `
         INSERT INTO recipes (
@@ -102,7 +133,8 @@ router.post("/",(req,res)=>{
         else{
             res.status(201).json({
                 message: "Recipe added successfully",
-                id: this.lastID
+                id: this.lastID,
+                image_url
             });
         }
      })
@@ -135,17 +167,18 @@ router.delete("/:id",(req,res)=>{
 })
 
 // UPDATE RECIPES
-router.put("/:id",(req,res)=>{
+router.put("/:id",upload.single("image"),(req,res)=>{
     const id = req.params.id;
     const {
         name,
         ingredients,
         instructions,
-        image_url,
         category_id,
         cook_time,
-        servings
+        servings,
+        old_image
      } = req.body;
+     const image_url = req.file ? req.file.filename : old_image;
     const updtRecipe = `
     UPDATE recipes 
     SET 
@@ -165,6 +198,7 @@ router.put("/:id",(req,res)=>{
                 err:err.message
             })
         }
+        
         res.json({
             message:"Recipe updated successfully!",
             updatedID: id

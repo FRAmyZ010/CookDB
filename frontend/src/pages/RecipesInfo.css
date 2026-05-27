@@ -1,0 +1,91 @@
+.info-card{
+    background-color: var(--color-surface);
+    max-width: 90vw;
+    width: 100%;
+    height: 76vh;
+
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.16);
+    border: none;
+    border-radius: 2%;
+
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+
+    margin-top: 5vh;
+
+}
+
+.info-col-left{
+    flex:3;
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.1);
+    border-radius: 20px 0px 0px 20px;
+
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+
+}
+
+.info-col-left p {
+    font-size: var(--font-s);
+}
+
+.info-col-right{
+    flex:7;
+
+    padding: 40px;
+
+    overflow-y: auto;
+}
+
+
+
+.infoImg{
+    min-width: 13vw;
+    max-width:18vw;
+    
+    object-fit: cover;
+
+    display: block;
+    margin: 0 auto;
+
+    border-radius: 25px;
+}
+
+.info-card p{
+    font-size: var(--font-l);
+    font-weight: var(--font-weight-light);
+    
+}
+
+.ingredients , .instructions{
+    font-size:var(--font-s);
+    margin-left: 1vw;
+}
+
+.ingredients-list , .instructions-list{
+    font-size: var(--font-s);
+    font-weight: 200;
+
+    margin-left: 2vw;
+}
+
+.lower-btn{
+    display: flex;
+    flex-direction: row;
+    
+    gap: 20px;
+}
+
+
+
+
+
+
+
+
+
