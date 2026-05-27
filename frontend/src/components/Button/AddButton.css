@@ -34,13 +34,13 @@
     align-items:center;
 }
 
-.popup-container{
+.add-popup-container{
     display:flex;
     flex-direction: column;
     align-items: center;
 
-    width: 50vw;
-    height: 70vh;
+    width: 30vw;
+    height: 80vh;
 
     padding: 30px;
 
@@ -50,7 +50,7 @@
 
 }
 
-.popup-head{
+.add-popup-head{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -80,13 +80,34 @@
   transition: 0.2s ease-in-out;
 }
 
-.form-container{
+.add-form-container{
   width: 80%;
 }
 
-.form-container form{
+.add-form-container form{
   display: flex;
   flex-direction: column;
   align-items: start;
   gap: 0.5rem;
+}
+
+.add-form-container input[type="text"]{
+  width: 100%;
+  height: 1.5vw;
+  padding: 5px;
+
+  border: .5px solid var(--color-primary-text);
+  border-radius: 12px;
+  box-shadow: 2px 2px 4px inset rgba(0,0,0,0.1);
+}
+
+.add-form-container textarea{
+  width: 100%;
+  height: 5vw;
+
+  border: .5px solid var(--color-primary-text);
+  border-radius: 12px;
+  box-shadow: 2px 2px 4px inset rgba(0,0,0,0.1);
+
+  padding: 10px;
 }

@@ -56,15 +56,15 @@ const AddButton = () => {
 
       {add && (
         <div className="addPopUp">
-          <div className="popup-container">
-            <div className="popup-head">
+          <div className="add-popup-container">
+            <div className="add-popup-head">
               <p></p>
               <h1>ADD NEW RECIPES</h1>
               <button className="closeBtn" onClick={() => setAdd(false)}>
                 X
               </button>
             </div>
-            <div className="form-container">
+            <div className="add-form-container">
               <form onSubmit={saveData}>
                 <label htmlFor="">
                   Name <span title="Enter your recipe's name.">ⓘ</span>
