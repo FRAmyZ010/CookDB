@@ -1,0 +1,19 @@
+.return-btn{
+    border: none;
+    border-radius: 15px;
+    width: 50px;
+
+
+    background-color: var(--color-return-btn);
+    font-size: var(--font-mid);
+    color: black;
+    font-weight: 800;
+
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    
+}
+
+.return-btn:hover{
+    transform: scale(1.1);
+    transition: .2s ease-in-out;
+}

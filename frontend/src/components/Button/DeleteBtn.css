@@ -1,0 +1,21 @@
+.del-btn{
+    padding: 0px 12px;
+    border:none;
+    border-radius: 25px;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+
+    background-color: red;
+    color: white;
+    
+
+    font-size: var(--font-mid);
+    font-weight: 500;
+}
+
+.del-btn:hover{
+    transform: scale(1.1);
+    transition: .2s ease-in-out;
+}
+
+
+

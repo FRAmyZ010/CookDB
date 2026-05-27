@@ -2,6 +2,10 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import RecipesListCard from "../components/RecipesListCard";
+import ReturnButton from "../components/Button/ReturnButton"
+import EditButton from "../components/Button/EditButton"
+import EditRecipesModal from "../components/Modal/EditRecipesModal";
+import DeleteBtn from "../components/Button/DeleteBtn";
 
 import "./RecipesInfo.css";
 
@@ -30,10 +34,13 @@ const RecipesInfo = () => {
 
   console.log(recipes);
 
+  const [edit, setEdit] = useState(false)
+
   return (
     <>
       <div className="info-card">
         <div className="info-col-left">
+            <ReturnButton/>
           <img
             src={`/img/${recipes[0]?.image_url}`}
             className="infoImg"
@@ -42,6 +49,10 @@ const RecipesInfo = () => {
           <p className="infoText">{`Name: ${recipes[0]?.name}`}</p>
           <p>{`Cook Time: ${recipes[0]?.cook_time}`}</p>
           <p>{`Portion: ${recipes[0]?.servings}`}</p>
+          <div className="lower-btn">
+            <EditButton onClick={()=>setEdit(true)}/>
+            <DeleteBtn id={id}/>
+          </div> 
         </div>
 
         <div className="info-col-right">
@@ -64,6 +75,13 @@ const RecipesInfo = () => {
           </div>
         </div>
       </div>
+
+      {edit&&
+        <EditRecipesModal 
+          onClose={()=>setEdit(false)}
+          recipe={recipes[0]}
+        />
+      }
     </>
   );
 };

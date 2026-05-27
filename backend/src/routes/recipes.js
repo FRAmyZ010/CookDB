@@ -167,17 +167,18 @@ router.delete("/:id",(req,res)=>{
 })
 
 // UPDATE RECIPES
-router.put("/:id",(req,res)=>{
+router.put("/:id",upload.single("image"),(req,res)=>{
     const id = req.params.id;
     const {
         name,
         ingredients,
         instructions,
-        image_url,
         category_id,
         cook_time,
-        servings
+        servings,
+        old_image
      } = req.body;
+     const image_url = req.file ? req.file.filename : old_image;
     const updtRecipe = `
     UPDATE recipes 
     SET 
@@ -197,6 +198,7 @@ router.put("/:id",(req,res)=>{
                 err:err.message
             })
         }
+        
         res.json({
             message:"Recipe updated successfully!",
             updatedID: id
