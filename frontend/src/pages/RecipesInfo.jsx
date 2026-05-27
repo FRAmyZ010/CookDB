@@ -9,7 +9,6 @@ const RecipesInfo = () => {
   const { id } = useParams();
 
   console.log(id);
-  
 
   const url = "http://localhost:3000";
 
@@ -29,31 +28,40 @@ const RecipesInfo = () => {
     fetchRecipes();
   }, []);
 
-  console.log(recipes)
-  
+  console.log(recipes);
 
   return (
     <>
       <div className="info-card">
         <div className="info-col-left">
-          <img src={`/img/${recipes[0]?.image_url}` } className="infoImg" alt="" />
-          <p>{`Name: ${recipes[0]?.name}`}</p>
+          <img
+            src={`/img/${recipes[0]?.image_url}`}
+            className="infoImg"
+            alt=""
+          />
+          <p className="infoText">{`Name: ${recipes[0]?.name}`}</p>
           <p>{`Cook Time: ${recipes[0]?.cook_time}`}</p>
           <p>{`Portion: ${recipes[0]?.servings}`}</p>
         </div>
 
         <div className="info-col-right">
           <div className="ingredients">
-            <h2>Ingredients |</h2>
-          <p>{recipes[0]?.ingredients}</p>
-          </div>
-          
-          <div className="instructions">
-            <h2>Instructions |</h2>
-            <p>{recipes[0]?.instructions}</p>
-            
+            <h3>Ingredients |</h3>
+            <ul className="ingredients-list">
+              {recipes[0]?.ingredients?.split("\n").map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
+            </ul>
           </div>
 
+          <div className="instructions">
+            <h3>Instructions |</h3>
+            <ul className="instructions-list">
+              {recipes[0]?.instructions?.split("\n").map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </>
