@@ -2,6 +2,7 @@ import React from "react";
 import "./AddButton.css";
 
 import { useEffect, useState } from "react";
+import { FaRegQuestionCircle } from "react-icons/fa";
 
 const AddButton = () => {
   const [add, setAdd] = useState(false);
@@ -49,13 +50,13 @@ const AddButton = () => {
   }
 
   const resetForm = () => {
-  setName("");
-  setTime("");
-  setServings("");
-  setIngredients("");
-  setInstructions("");
-  setImage(null);
-};
+    setName("");
+    setTime("");
+    setServings("");
+    setIngredients("");
+    setInstructions("");
+    setImage(null);
+  };
 
   return (
     <>
@@ -69,14 +70,23 @@ const AddButton = () => {
             <div className="add-popup-head">
               <p></p>
               <h1>ADD NEW RECIPES</h1>
-              <button className="closeBtn" onClick={() =>{resetForm(); setAdd(false)}}>
+              <button
+                className="closeBtn"
+                onClick={() => {
+                  resetForm();
+                  setAdd(false);
+                }}
+              >
                 X
               </button>
             </div>
             <div className="add-form-container">
               <form onSubmit={saveData}>
                 <label htmlFor="">
-                  Name <span title="Enter your recipe's name.">ⓘ</span>
+                  Name{" "}
+                  <span title="Enter your recipe's name.">
+                    &nbsp; <FaRegQuestionCircle />
+                  </span>
                 </label>
                 <input
                   value={name}
@@ -87,7 +97,12 @@ const AddButton = () => {
                   required
                 />
 
-                <label htmlFor="">Time</label>
+                <label htmlFor="">
+                  Time
+                  <span title="Enter your recipe's name.">
+                    &nbsp; <FaRegQuestionCircle />
+                  </span>
+                </label>
                 <input
                   value={time}
                   type="text"
@@ -97,7 +112,12 @@ const AddButton = () => {
                   required
                 />
 
-                <label htmlFor="">Serving</label>
+                <label htmlFor="">
+                  Serving
+                  <span title="Enter your recipe's name.">
+                    &nbsp; <FaRegQuestionCircle />
+                  </span>
+                </label>
                 <input
                   value={servings}
                   type="text"
@@ -107,7 +127,12 @@ const AddButton = () => {
                   required
                 />
 
-                <label htmlFor="">Ingredients</label>
+                <label htmlFor="">
+                  Ingredients
+                  <span title="Enter your recipe's name.">
+                    &nbsp; <FaRegQuestionCircle />
+                  </span>
+                </label>
                 <textarea
                   value={ingredients}
                   type="text"
@@ -117,7 +142,12 @@ const AddButton = () => {
                   required
                 />
 
-                <label htmlFor="">Instructions</label>
+                <label htmlFor="">
+                  Instructions
+                  <span title="Enter your recipe's name.">
+                    &nbsp; <FaRegQuestionCircle />
+                  </span>
+                </label>
                 <textarea
                   value={instructions}
                   type="text"
@@ -127,7 +157,12 @@ const AddButton = () => {
                   required
                 />
 
-                <label htmlFor="">Image</label>
+                <label htmlFor="">
+                  Image
+                  <span title="Enter your recipe's name.">
+                    &nbsp; <FaRegQuestionCircle />
+                  </span>
+                </label>
                 <input
                   type="file"
                   name=""
@@ -147,7 +182,6 @@ const AddButton = () => {
                     instructions.trim() === "" ||
                     image === null
                   }
-
                   className="add-submit-btn"
                 >
                   SAVE
