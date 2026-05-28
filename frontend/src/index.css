@@ -14,9 +14,12 @@
     --color-add-btn:#00FF5F;
     --color-return-btn:#FFD400;
     --color-edit-btn:#00D5FF;
+    --color-submit-btn:#3BB0FF;
+    --color-disabled:#C4C4C4;
   
     /* FONT SIZE */
     --font-sm:.8vw;
+    --font-standard:1vw;
     --font-s:1.2vw;
     --font-l:1.5vw;
     --font-mid:2vw;
