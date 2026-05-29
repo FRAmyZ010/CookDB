@@ -15,7 +15,10 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path="/recipes" element={<Recipes/>}/>
         <Route path="/recipes-info/:id" element={<RecipesInfo/>}/>
-      </Routes> 
+      </Routes>
+      <footer>
+        CookDB v.1.0.0
+      </footer>
     </>
   )
 }
