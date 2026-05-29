@@ -4,4 +4,4 @@
 - Initial release
 - Recipes CRUD system
 - Image upload support
-- Responsive user interface
+- Responsive user interface 
