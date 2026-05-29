@@ -67,16 +67,16 @@ const EditRecipesModal = ({ onClose, recipe }) => {
   }
   return (
     <>
-      <div className="addPopUp">
-        <div className="popup-container">
-          <div className="popup-head">
+      <div className="editPopUp">
+        <div className="edit-popup-container">
+          <div className="edit-popup-head">
             <p></p>
             <h1>EDIT RECIPES</h1>
             <button className="closeBtn" onClick={onClose}>
               X
             </button>
           </div>
-          <div className="form-container">
+          <div className="edit-form-container">
             <form onSubmit={saveData}>
               <label htmlFor="">
                 Name <span title="Enter your recipe's name.">ⓘ</span>
@@ -149,6 +149,7 @@ const EditRecipesModal = ({ onClose, recipe }) => {
                   ingredients.trim() === "" ||
                   instructions.trim() === ""
                 }
+                className="edit-submit-btn"
               >
                 SAVE
               </button>
