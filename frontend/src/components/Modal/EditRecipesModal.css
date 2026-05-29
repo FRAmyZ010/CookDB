@@ -1,4 +1,4 @@
-.addPopUp{
+.editPopUp{
      position:fixed;
 
     top:0;
@@ -14,13 +14,13 @@
     align-items:center;
 }
 
-.popup-container{
+.edit-popup-container{
     display:flex;
     flex-direction: column;
     align-items: center;
 
-    width: 50vw;
-    height: 70vh;
+    width: 30vw;
+    height: 84vh;
 
     padding: 30px;
 
@@ -30,7 +30,7 @@
 
 }
 
-.popup-head{
+.edit-popup-head{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -60,13 +60,77 @@
   transition: 0.2s ease-in-out;
 }
 
-.form-container{
+.edit-form-container{
   width: 80%;
 }
 
-.form-container form{
+.edit-form-container form{
   display: flex;
   flex-direction: column;
   align-items: start;
   gap: 0.5rem;
+}
+
+.edit-form-container input[type="text"]{
+  width: 100%;
+  height: 1.5vw;
+  padding: 5px 10px;
+
+  border: .5px solid var(--color-primary-text);
+  border-radius: 12px;
+  box-shadow: 2px 2px 4px inset rgba(0,0,0,0.1);
+
+  font-size: var(--font-standard);
+  
+}
+
+.edit-form-container textarea{
+  width: 100%;
+  height: 5vw;
+
+  border: .5px solid var(--color-primary-text);
+  border-radius: 12px;
+  box-shadow: 2px 2px 4px inset rgba(0,0,0,0.1);
+
+  padding: 10px 10px;
+
+  font-size: var(--font-standard);
+}
+
+/* .add-form-container input[type="file"]::file-selector-button{
+  border: none;
+} */
+
+
+.edit-submit-btn{
+  margin-top:5%;
+  padding: .5vw;
+
+  border: none;
+  border-radius: 10%;
+
+  font-size: var(--font-l);
+  font-weight: var(--font-weight-bold);
+  color:var(--color-surface);
+
+  background-color: var(--color-submit-btn);
+}
+
+.edit-submit-btn:not(:disabled):hover{
+  transform: scale(1.1);
+  transition: .2s ease-in-out;
+}
+
+.edit-submit-btn:disabled{
+  margin-top:5%;
+  padding: .5vw;
+
+  border: none;
+  border-radius: 10%;
+
+  font-size: var(--font-l);
+  font-weight: var(--font-weight-bold);
+  color:var(--color-surface);
+
+  background-color: var(--color-disabled);
 }
