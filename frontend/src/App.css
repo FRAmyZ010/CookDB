@@ -182,3 +182,7 @@
     border-right-color: var(--border);
   }
 }
+
+footer{
+  margin: 2vw;
+}

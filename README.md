@@ -1,9 +1,58 @@
 # CookDB - Web-Base Recipe Management System
+⭐ Version: v1.0.0
 
 ## Table of Contents
-- [Introduction](#introduction)
-- [Technology Stack](#technology-stack)
-  - [Frontend](#frontend)
+<!--TOC depthFrom:2 depthTo:2-->
+- [CookDB - Web-Base Recipe Management System](#cookdb---web-base-recipe-management-system)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Features](#features)
+    - [Core Features](#core-features)
+  - [Out of Scope](#out-of-scope)
+  - [Technology Stack](#technology-stack)
+    - [Frontend](#frontend)
+    - [Backend](#backend)
+    - [Database](#database)
+  - [Installation Guide](#installation-guide)
+    - [1. Clone the Repository](#1-clone-the-repository)
+    - [2. Navigate into Project](#2-navigate-into-project)
+    - [3. Install Dependencies](#3-install-dependencies)
+    - [Root](#root)
+    - [Backend](#backend-1)
+    - [Frontend](#frontend-1)
+  - [Running the Project](#running-the-project)
+  - [Project Structure](#project-structure)
+  - [System Flow](#system-flow)
+  - [Architecture Overview](#architecture-overview)
+  - [UI Pages](#ui-pages)
+    - [Home Page](#home-page)
+    - [Recipe List Page](#recipe-list-page)
+    - [Create New Recipe Page](#create-new-recipe-page)
+    - [Edit Recipe Page](#edit-recipe-page)
+  - [API Specification](#api-specification)
+    - [Recipes API](#recipes-api)
+    - [Categories API](#categories-api)
+    - [Example API Response](#example-api-response)
+    - [GET /recipes](#get-recipes)
+  - [Database Design](#database-design)
+    - [Recipes Table](#recipes-table)
+  - [Challenges During Development](#challenges-during-development)
+  - [Future Improvements](#future-improvements)
+  - [Screenshots](#screenshots)
+    - [Home Page](#home-page-1)
+    - [Recipes List](#recipes-list)
+    - [Create new Recipes](#create-new-recipes)
+    - [Recipes Info](#recipes-info)
+    - [Edit Recipes Info](#edit-recipes-info)
+  - [Requirements](#requirements)
+  - [Tested Environment](#tested-environment)
+  - [Changelog](#changelog)
+    - [v.1.0.0](#v100)
+    - [✨ Added](#-added)
+  - [Author](#author)
+  - [License](#license)
+
+<!--/TOC-->
 ## Introduction
 CookDB is a web-based recipe management application developed to help users organize and manage cooking recipes efficiently.
 
@@ -232,3 +281,51 @@ Some challenges encountered during development included:
 - Category system
 
 ## Screenshots
+### Home Page
+![Home](./screenshots/homepage.png)
+
+### Recipes List
+![Recipes-List](./screenshots/recipes-list.png)
+
+### Create new Recipes
+![CreateRecipes](./screenshots/add-recipes.png)
+
+### Recipes Info
+![RecipesInfo1](./screenshots/recipes-info-1.png)
+![RecipesInfo2](./screenshots/recipes-info-2.png)
+
+### Edit Recipes Info
+![EditRecipes](./screenshots/edit-recipes.png)
+
+## Requirements
+- Node.js v20+
+- npm v10+
+- Modern web browser
+  - Google Chrome
+  - Microsoft Edge
+
+## Tested Environment
+- Windows 11
+- Ubuntu WSL
+- Nodejs v22.14.0
+- npm v10.9.2
+
+## Changelog
+### v.1.0.0
+### ✨ Added
+- Initial release
+- Recipes CRUD system
+- Image upload support
+- Responsive user interface
+
+## Author
+Developed by Pongsapat Pinijngam
+
+🎓 Computer Engineering  
+💻 Interested in Full-Stack Development  
+
+🌐 GitHub : [FRAmyZ010](https://github.com/FRAmyZ010)  
+📧 E-mail :  [pongsapat.pp2004@gmail.com](mailto:pongsapat.pp2004@gmail.com)
+
+## License
+This project is created for educational and portfolio purpose
